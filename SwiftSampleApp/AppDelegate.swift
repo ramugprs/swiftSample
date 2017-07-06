@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // this is for keyboard
         
+        // this is for keyboard// this is for keyboard// this is for keyboard
+        
         IQKeyboardManager.sharedManager().enable = true
 
         
