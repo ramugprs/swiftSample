@@ -7,15 +7,58 @@
 //
 
 import UIKit
+import SJSwiftSideMenuController
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mNav:UINavigationController?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //sleep(2)
+        
+//        self.window = UIWindow(frame:UIScreen.main.bounds)
+//        
+//        let mLocationVC:DeliveryLocationVC = UIStoryboard(name:"Main",bundle:nil).instantiateViewController(withIdentifier: "DeliveryLocationVC") as! DeliveryLocationVC
+//        
+//        mNav = UINavigationController(rootViewController:mLocationVC)
+//        
+//        mNav?.navigationBar.isHidden = true
+//        
+//        self.window?.rootViewController = mNav
+//        
+//        
+//        self.window?.makeKeyAndVisible()
+        
+        IQKeyboardManager.sharedManager().enable = true
+
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let months = DateFormatter().monthSymbols
+        let days = DateFormatter().weekdaySymbols
+        
+        let sideVC_L:SideMenuController = (storyBoard.instantiateViewController(withIdentifier: "SideMenuController") as? SideMenuController)!
+        
+        sideVC_L.menuItems = days as NSArray!
+        
+        let sideVC_R : SideMenuController = (storyBoard.instantiateViewController(withIdentifier: "SideMenuController") as? SideMenuController)!
+        sideVC_R.menuItems = days as NSArray!
+        
+        let rootVC:DeliveryLocationVC = storyBoard.instantiateViewController(withIdentifier: "DeliveryLocationVC") as! DeliveryLocationVC
+        
+        
+        
+        SJSwiftSideMenuController.setUpNavigation(rootController: rootVC, leftMenuController: sideVC_L, rightMenuController: sideVC_R, leftMenuType: .SlideView, rightMenuType: .SlideView)
+        
+        SJSwiftSideMenuController.setUpLeftMenuWidth(width: 300)
+        
+        SJSwiftSideMenuController.enableSwipeGestureWithMenuSide(menuSide: .LEFT)
+        
+        
         return true
     }
 

@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.4.0)
+  - IQKeyboardManagerSwift (4.0.9)
+  - SJSwiftSideMenuController (0.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - SJSwiftSideMenuController
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  SJSwiftSideMenuController: 41f5558261bfdcc8754475ea0e3c08397ac0a079
+
+PODFILE CHECKSUM: 4d96459a10310ad1c3cace77f8afead0eea95eb8
+
+COCOAPODS: 1.2.1
